@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="angularCRUD">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app/app.css">
+</head>
+
+<body>
+
+  <ng-view></ng-view>
+  <!-- CORE -->
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
+
+  <!-- APP -->
+  <script src="app/app.module.js"></script>
+  <script src="app/app.config.js"></script>
+
+  <!-- HEADER -->
+  <script src="app/shared/header/header.module.js"></script>
+  <script src="app/shared/header/header.component.js"></script>
+  <script src="app/shared/header/header.controller.js"></script>
+
+  <!-- FOOTER -->
+  <script src="app/shared/footer/footer.module.js"></script>
+  <script src="app/shared/footer/footer.component.js"></script>
+  <script src="app/shared/footer/footer.controller.js"></script>
+
+
+  <!-- USERS -->
+  <script src="app/users/users.module.js"></script>
+  <script src="app/users/users.component.js"></script>
+  <script src="app/users/users.controller.js"></script>
+</body>
+
+</html>

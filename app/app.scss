@@ -1,0 +1,48 @@
+.mt-5 {
+  margin-top: 3rem !important
+}
+
+.Header {
+  &__Row {
+    display: flex;
+
+    &__Col {
+      display: flex;
+
+      &__First {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.Footer {
+  &__Row {
+    display: flex;
+
+    &__Col {
+      &__Second {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+.Index {
+  &__Row {
+    &__Col {
+      &__Table {
+        &__TBody {
+          &__TRow {
+            &__TData {
+              display: flex;
+              justify-content: space-evenly;
+            }
+          }
+        }
+      }
+    }
+  }
+}

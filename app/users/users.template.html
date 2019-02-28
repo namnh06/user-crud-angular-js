@@ -1,0 +1,32 @@
+<header></header>
+<hr>
+<div class="container Index">
+  <div class="row Index__Row">
+    <div class="col-xs-12 Index__Row__Col">
+      <table class="table table-bordered Index__Row__Col__Table">
+        <thead class="Index__Row__Col__Table__THead">
+          <tr class="Index__Row__Col__Table__THead__TRow">
+            <th class="text-center">#</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in uc.users">
+            <th class="text-center">{{$index + 1}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td class="Index__Row__Col__Table__TBody__TRow__TData">
+              <button class="btn btn-primary text-capitalize">show</button>
+              <button class="btn btn-warning text-capitalize">edit</button>
+              <button class="btn btn-danger text-capitalize">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<hr>
+<footer></footer>
