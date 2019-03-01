@@ -1,8 +1,49 @@
 <header></header>
 <hr>
+<!-- <script type="text/ng-template" id="myModalContent.html">
+
+</script> -->
 <div class="container Index">
   <div class="row Index__Row">
-    <div class="col-xs-12 Index__Row__Col">
+    <div class="col-xs-12">
+      <button class="btn btn-success text-uppercase pull-right" ng-click="usc.onCreateAnUserClick()">
+        create an user
+      </button>
+    </div>
+    <div class="col-xs-12 mt-5" ng-if="usc.userForm.status">
+      <div class="panel panel-default">
+        <div class="panel-heading ">
+          <span class="h4">{{!!usc.userForm.edit ? 'Edit' : 'Add' }} User Form</span>
+        </div>
+        <form class="panel-body">
+          <div class="row">
+            <div class="form-group col-xs-4">
+              <label for="name" class="text-capitalize">name</label>
+              <input type="text" class="form-control" id="name" name="name" ng-model="usc.userForm.name">
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="name" class="text-capitalize">email</label>
+              <input type="email" class="form-control" id="email" name="email" ng-model="usc.userForm.email">
+            </div>
+            <div class="form-group col-xs-4">
+              <label for="name" class="text-capitalize">password</label>
+              <input type="password" class="form-control" id="password" name="password" ng-model="usc.userForm.password">
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="form-group col-xs-2">
+              <button type="button" class="btn btn-success" ng-click="usc.onAddUpdateUserFormClick()">
+                {{!!usc.userForm.edit ? 'Update' : 'Add'}}
+              </button>
+              <button class="btn btn-danger" ng-click="usc.onCancelUserFormClick()">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-xs-12 Index__Row__Col mt-5">
       <table class="table table-bordered Index__Row__Col__Table">
         <thead class="Index__Row__Col__Table__THead">
           <tr class="Index__Row__Col__Table__THead__TRow">
@@ -13,14 +54,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in uc.users">
+          <tr ng-repeat="user in usc.users">
             <th class="text-center">{{$index + 1}}</th>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
             <td class="Index__Row__Col__Table__TBody__TRow__TData">
-              <button class="btn btn-primary text-capitalize">show</button>
-              <button class="btn btn-warning text-capitalize">edit</button>
-              <button class="btn btn-danger text-capitalize">delete</button>
+              <!-- <button type="button" class="btn btn-primary text-capitalize" ng-click="usc.onShowButtonClick(user.id)">show</button> -->
+              <button type="button" class="btn btn-warning text-capitalize" ng-click="usc.onEditButtonClick(user)">edit</button>
+              <button type="button" class="btn btn-danger text-capitalize" ng-click="usc.onDeleteButtonClick(user.id)">delete</button>
             </td>
           </tr>
         </tbody>

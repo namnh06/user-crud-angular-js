@@ -1,5 +1,6 @@
 angular
   .module('angularCRUD', [
     'ngRoute',
-    'users'
+    'users',
+    'user'
   ]);

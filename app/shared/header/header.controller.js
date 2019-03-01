@@ -1,6 +1,8 @@
 angular
   .module('header')
-  .controller('HeaderController', [function () {
+  .controller('HeaderController', ['$location', function ($location) {
     var self = this;
-    this.title = 'Header';
+    self.onHomeButtonClick = function () {
+      $location.path('/users');
+    }
   }])

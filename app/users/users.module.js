@@ -1,5 +1,7 @@
 angular
   .module('users', [
     'header',
-    'footer'
+    'footer',
+    'ui.bootstrap',
+    'uibModal'
   ]);

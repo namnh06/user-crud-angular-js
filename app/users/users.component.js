@@ -3,5 +3,5 @@ angular
   .component('users', {
     templateUrl: 'app/users/users.template.html',
     controller: 'UsersController',
-    controllerAs: 'uc'
+    controllerAs: 'usc'
   })
