@@ -2,7 +2,7 @@ angular
   .module('angularCRUD')
   .service('UserService', ['$http', function ($http) {
     var self = this;
-    var url = 'http://localhost/laravel-users-api/public/api/users';
+    var url = 'http://localhost/user-crud-laravel-api/public/api/users';
     self.getUsers = function getUsers() {
       return $http.get(url);
     }
