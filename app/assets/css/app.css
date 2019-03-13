@@ -1,0 +1,25 @@
+.mt-3 {
+  margin-top: 1.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mb-5 {
+  margin-bottom: 3rem !important;
+}
+
+.Footer__Row {
+  display: flex;
+}
+
+.Footer__Row__Col__Second {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Index__Row__Col__Table__TBody__TRow__TData {
+  display: flex;
+  justify-content: space-evenly;
+}

@@ -6,19 +6,8 @@
   margin-top: 3rem !important;
 }
 
-.Header {
-  &__Row {
-    display: flex;
-
-    &__Col {
-      display: flex;
-
-      &__First {
-        display: flex;
-        align-items: center;
-      }
-    }
-  }
+.mb-5 {
+  margin-bottom: 3rem !important;
 }
 
 .Footer {
