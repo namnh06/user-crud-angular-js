@@ -2,14 +2,14 @@ angular
   .module('users')
   .controller('UsersController', ['$http', '$location', '$route', '$uibModal', 'UserService', function ($http, $location, $route, $uibModal, UserService) {
     var self = this;
-    this.$onInit = function () {
+    self.$onInit = function () {
       self.userForm = {};
       self.userForm.status = false;
       self.userForm.edit = false;
 
-      UserService.getUsers().then(function (response) {
-        self.users = response.data.users;
-      });
+      // UserService.getUsers().then(function (response) {
+      //   self.users = response.data.users;
+      // });
     };
 
     self.onCreateAnUserClick = function () {
@@ -32,7 +32,7 @@ angular
         )
         return;
       }
-      console.log('not update');
+
       UserService.addUser(self.userForm).then(
         function (response) {
           if (parseInt(response.data.status) === 201) {
@@ -51,6 +51,16 @@ angular
     self.onShowButtonClick = function (id) {
       $location.path('/users/' + id);
     };
+
+    self.onGetAJAX = function () {
+      $http
+        .get('http://localhost/user-crud-laravel/public/api/users')
+        .then(function (response) {
+          // console.log(response.data.users);
+          self.users = response.data.users;
+
+        });
+    }
 
     self.onEditButtonClick = function (user) {
       self.userForm.status = true;

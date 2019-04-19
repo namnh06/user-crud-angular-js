@@ -2,31 +2,27 @@
 <html lang="en" ng-app="angularCRUD">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Document</title>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="app/assets/css/app.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="app/assets/css/app.min.css" />
 </head>
 
 <body>
-
   <!-- <ng-view></ng-view> -->
   <users-component></users-component>
   <!-- CORE -->
   <script src="node_modules/angular/angular.min.js"></script>
-  <!-- <script src="node_modules/angular-route/angular-route.min.js"></script> -->
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
   <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 
   <!-- UIB MODAL -->
   <script src="app/shared/uib-modal/uib-modal.module.js"></script>
 
-
   <script src="app/shared/uib-modal/delete-confirm/delete-confirm.component.js"></script>
   <script src="app/shared/uib-modal/delete-confirm/delete-confirm.controller.js"></script>
-
-
 
   <!-- APP -->
   <script src="app/app.module.js"></script>
@@ -42,13 +38,10 @@
   <script src="app/shared/footer/footer.component.js"></script>
   <script src="app/shared/footer/footer.controller.js"></script>
 
-
   <!-- USERS -->
   <script src="app/users/users.module.js"></script>
   <script src="app/users/users.component.js"></script>
   <script src="app/users/users.controller.js"></script>
-
-
 
   <!-- SERVICE -->
   <script src="app/services/user.service.js"></script>
