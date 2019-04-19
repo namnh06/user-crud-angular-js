@@ -1,5 +1,5 @@
 angular
   .module('angularCRUD', [
-    'ngRoute',
+    // 'ngRoute',
     'users',
   ]);
