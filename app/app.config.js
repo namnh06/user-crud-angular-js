@@ -2,8 +2,16 @@ angular
   .module('angularCRUD')
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      .when('/users', {
-        template: '<users></users>'
+      .when('/', {
+        redirectTo: '/users'
       })
-      .otherwise('/users');
+      .when('/users', {
+        template: '<users-component></users-component>'
+      })
+      .when('/user/:id', {
+        template: '<user></user>'
+      })
+      .otherwise({
+        redirectTo: '/users'
+      });
   }]);

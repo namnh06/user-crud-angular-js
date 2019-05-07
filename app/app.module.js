@@ -1,4 +1,5 @@
 angular
   .module('angularCRUD', [
-    'users'
+    'users',
+    'user'
   ]);

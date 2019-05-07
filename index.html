@@ -11,8 +11,8 @@
 </head>
 
 <body>
-  <!-- <ng-view></ng-view> -->
-  <users-component></users-component>
+  <ng-view></ng-view>
+
   <!-- CORE -->
   <script src="node_modules/angular/angular.min.js"></script>
   <script src="node_modules/angular-route/angular-route.min.js"></script>
@@ -26,7 +26,7 @@
 
   <!-- APP -->
   <script src="app/app.module.js"></script>
-  <!-- <script src="app/app.config.js"></script> -->
+  <script src="app/app.config.js"></script>
 
   <!-- HEADER -->
   <script src="app/shared/header/header.module.js"></script>
@@ -42,6 +42,11 @@
   <script src="app/users/users.module.js"></script>
   <script src="app/users/users.component.js"></script>
   <script src="app/users/users.controller.js"></script>
+
+  <!-- USER -->
+  <script src="app/user/user.module.js"></script>
+  <script src="app/user/user.component.js"></script>
+  <script src="app/user/user.controller.js"></script>
 
   <!-- SERVICE -->
   <script src="app/services/user.service.js"></script>

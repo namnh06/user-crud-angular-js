@@ -49,9 +49,6 @@ angular.module('users').controller('UsersController', [
       self.userForm.status = false;
     };
 
-    self.onShowButtonClick = function (id) {
-      $location.path('/users/' + id);
-    };
 
     self.onEditButtonClick = function (user) {
       self.userForm.status = true;
@@ -61,6 +58,12 @@ angular.module('users').controller('UsersController', [
       self.userForm.email = user.email;
       self.userForm.password = user.password;
     };
+
+    self.onShowButtonClick = function (user) {
+      var path = '/user/' + user.id;
+      console.log(path);
+      $location.path(path);
+    }
 
     self.onOrderByClicked = function (order) {
       self.userOrder = order;
