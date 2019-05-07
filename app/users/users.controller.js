@@ -1,15 +1,19 @@
-angular
-  .module('users')
-  .controller('UsersController', ['$http', '$location', '$route', '$uibModal', 'UserService', function ($http, $location, $route, $uibModal, UserService) {
+angular.module('users').controller('UsersController', [
+  '$http',
+  '$location',
+  '$route',
+  '$uibModal',
+  'UserService',
+  function ($http, $location, $route, $uibModal, UserService) {
     var self = this;
     self.$onInit = function () {
       self.userForm = {};
       self.userForm.status = false;
       self.userForm.edit = false;
-
-      // UserService.getUsers().then(function (response) {
-      //   self.users = response.data.users;
-      // });
+      UserService.getUsers().then(function (response) {
+        console.log(response);
+        self.users = response.data;
+      });
     };
 
     self.onCreateAnUserClick = function () {
@@ -18,49 +22,36 @@ angular
       self.userForm.name = '';
       self.userForm.email = '';
       self.userForm.password = '';
-    }
+    };
 
     self.onAddUpdateUserFormClick = function () {
       if (self.userForm.edit) {
-        UserService.updateUser(self.userForm).then(
-          function (response) {
-            if (parseInt(response.data.status) === 200) {
-              self.userForm.status = false;
-              var user = response.data.data.user;
-            }
+        UserService.updateUser(self.userForm).then(function (response) {
+          if (parseInt(response.data.status) === 200) {
+            self.userForm.status = false;
+            var user = response.data.data.user;
           }
-        )
+        });
         return;
       }
 
-      UserService.addUser(self.userForm).then(
-        function (response) {
-          if (parseInt(response.data.status) === 201) {
-            self.userForm.status = false;
-            var user = response.data.data.user;
-            self.users.unshift(user);
-          }
-        })
+      UserService.addUser(self.userForm).then(function (response) {
+        if (parseInt(response.data.status) === 201) {
+          self.userForm.status = false;
+          var user = response.data.data.user;
+          self.users.unshift(user);
+        }
+      });
       return;
-    }
+    };
 
     self.onCancelUserFormClick = function () {
       self.userForm.status = false;
-    }
+    };
 
     self.onShowButtonClick = function (id) {
       $location.path('/users/' + id);
     };
-
-    self.onGetAJAX = function () {
-      $http
-        .get('http://localhost/user-crud-laravel/public/api/users')
-        .then(function (response) {
-          // console.log(response.data.users);
-          self.users = response.data.users;
-
-        });
-    }
 
     self.onEditButtonClick = function (user) {
       self.userForm.status = true;
@@ -71,6 +62,9 @@ angular
       self.userForm.password = user.password;
     };
 
+    self.onOrderByClicked = function (order) {
+      self.userOrder = order;
+    };
 
     self.onDeleteButtonClick = function (id) {
       var userID = id;
@@ -79,19 +73,18 @@ angular
         animation: true,
         component: 'deleteConfirmModalComponent'
       });
-
-      modalInstance.result.then(function (message) {
-        if (message === 'ok') {
-          UserService.deleteUser(userID).then(
-            function (response) {
+      modalInstance.result.then(
+        function (message) {
+          if (message === 'ok') {
+            UserService.deleteUser(userID).then(function (response) {
               self.users = self.users.filter(function (user) {
                 return user.id !== userID;
-              })
-            }
-          )
-        }
-      }, function (message) {});
-
+              });
+            });
+          }
+        },
+        function (message) {}
+      );
     };
-
-  }]);
+  }
+]);

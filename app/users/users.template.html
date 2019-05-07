@@ -4,8 +4,7 @@
 <div class="container Index">
   <div class="row Index__Row">
     <div class="col-xs-12">
-      <button class="btn btn-info" ng-click="usc.onGetAJAX()">AJAX</button>
-
+      Filter User : <input type="text" class="" ng-model="usc.userFilter">
       <button class="btn btn-success text-uppercase pull-right" ng-click="usc.onCreateAnUserClick()">
         create an user
       </button>
@@ -49,13 +48,13 @@
         <thead class="Index__Row__Col__Table__THead">
           <tr class="Index__Row__Col__Table__THead__TRow">
             <th class="text-center">#</th>
-            <th class="text-center">Name</th>
-            <th class="text-center">Email</th>
+            <th class="text-center" ng-click="usc.onOrderByClicked('name')">Name</th>
+            <th class="text-center" ng-click="usc.onOrderByClicked('email')">Email</th>
             <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="user in usc.users">
+          <tr ng-repeat="user in usc.users | filter: usc.userFilter | orderBy: usc.userOrder">
             <th class="text-center">{{$index + 1}}</th>
             <td>{{user.name}}</td>
             <td>{{user.email}}</td>
@@ -73,3 +72,10 @@
 </div>
 <hr>
 <footer></footer>
+<ul>
+  <li ng-repeat="x in usc.data"></li>
+</ul>
+
+<ul>
+  <li ng-repeat="user in usc.users">{{user.name}}</li>
+</ul>

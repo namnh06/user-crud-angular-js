@@ -4,11 +4,11 @@ angular
     var self = this;
     var url = 'http://localhost/user-crud-laravel/public/api/users';
     // var url = 'https://namcoi.com/projects/user-crud-laravel-api/public/api/users';
-    self.getUsers = function getUsers() {
+    self.getUsers = function () {
       return $http.get(url);
     }
 
-    self.getUser = function getUser(id) {
+    self.getUser = function (id) {
       return $http.get(url + '/' + id);
     }
 
